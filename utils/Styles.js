@@ -10,6 +10,14 @@ const useStyles = makeStyles((theme) =>({
            marginLeft : 10,  
         },
     },
+    main : {
+        minHeight: '80vh',
+
+    },
+    footer: {
+         textAlign: 'center',
+
+    },
     
 }));
 export default useStyles;

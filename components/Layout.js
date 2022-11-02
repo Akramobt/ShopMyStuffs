@@ -17,10 +17,10 @@ export default function Layout({children}) {
 
         </Toolbar>
       </AppBar>
-      <Container>
+      <Container className={classes.main}>
         {children}
       </Container>
-      <footer>
+      <footer className={classes.footer}>
         <Typography>
           All rights reserved . Shop My stuff. 
         </Typography>
