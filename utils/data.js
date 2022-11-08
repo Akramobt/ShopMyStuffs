@@ -1,9 +1,9 @@
 const data ={
-    product : (
+    product : [
         {
             name: 'Stuff Shirt',
             categorry : 'Shirts',
-            image : '/image/shirt1.jpg',
+            image : '/images/shirt1.jpg',
             price: 70,
             brand:'Nike',
             rating: 4.5,
@@ -13,7 +13,7 @@ const data ={
         }, {
             name: 'Steddy Shirt ',
             categorry : 'Shirts',
-            image : '/image/shirt2.jpg',
+            image : '/images/shirt2.jpg',
             price: 60,
             brand:'Adidas',
             rating: 4.2,
@@ -23,7 +23,7 @@ const data ={
         }, {
             name: 'JustLove Shirt',
             categorry : 'Shirts',
-            image : '/image/shirt3.jpg',
+            image : '/images/shirt3.jpg',
             price: 57,
             brand:'Puma',
             rating: 4.7,
@@ -33,7 +33,7 @@ const data ={
         }, {
             name: 'classique Pants',
             categorry : 'Pants',
-            image : '/image/Pants1.jpg',
+            image : '/images/Pants1.jpg',
             price: 100,
             brand:'Nike',
             rating: 4.5,
@@ -43,7 +43,7 @@ const data ={
         }, {
             name: 'Sports Pants',
             categorry : 'Pants',
-            image : '/image/pants2.jpg',
+            image : '/images/pants2.jpg',
             price: 40,
             brand:'Nike',
             rating: 4.2,
@@ -53,13 +53,14 @@ const data ={
         }, {
             name: 'Swim Shorts',
             categorry : 'Pants',
-            image : '/image/Pants3.jpg',
+            image : '/images/Pants3.jpg',
             price: 30,
             brand:'Reebok ',
             rating: 4.8,
             numReview : 10,
             countInStock : 20,
             description : 'A popular Shorts',
-        }
-    )
-}
+        },
+    ],
+};
+export default data;
