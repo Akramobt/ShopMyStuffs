@@ -1,7 +1,8 @@
 import React, { Children } from 'react';
 import Head from 'next/head';
-import {AppBar,Toolbar,Typography,Container} from '@mui/material';
+import {AppBar,Toolbar,Typography,Container, Link} from '@mui/material';
 import useStyles from '../utils/Styles';
+import NextLink from 'next/link' ;
 
 export default function Layout({children}) {
   const classes = useStyles();
@@ -13,8 +14,8 @@ export default function Layout({children}) {
       </Head>
       <AppBar position = "static" className={classes.navbar}>
         <Toolbar>
-            <Typography> ShopMyStuff</Typography>
-
+            <Link href='/'><Typography className={classes.brand}>ShopMyStuff</Typography> </Link>
+            
         </Toolbar>
       </AppBar>
       <Container className={classes.main}>

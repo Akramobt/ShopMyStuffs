@@ -10,6 +10,12 @@ const useStyles = makeStyles((theme) =>({
            marginLeft : 10,  
         },
     },
+    brand:{
+        fontWeight: 'bold',
+        fontSize: '1.5rem',
+       // marginBottom:'30px',
+
+    },
     main : {
         minHeight: '80vh',
 
