@@ -1,8 +1,8 @@
 import React, { Children } from 'react';
 import Head from 'next/head';
-import {AppBar,Toolbar,Typography,Container, Link} from '@mui/material';
+import {AppBar,Toolbar,Typography,Container} from '@mui/material';
 import useStyles from '../utils/Styles';
-import NextLink from 'next/link' ;
+import Link from 'next/link' ;
 
 export default function Layout({children}) {
   const classes = useStyles();
