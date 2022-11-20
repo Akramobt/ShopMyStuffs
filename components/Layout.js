@@ -2,6 +2,9 @@ import React, { Children } from 'react';
 import Head from 'next/head';
 import {AppBar,Toolbar,Typography,Container} from '@mui/material';
 import useStyles from '../utils/Styles';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+
 import Link from 'next/link' ;
 
 export default function Layout({children}) {
@@ -15,6 +18,11 @@ export default function Layout({children}) {
       <AppBar position = "static" className={classes.navbar}>
         <Toolbar>
             <Link href='/'><Typography className={classes.brand}>ShopMyStuff</Typography> </Link>
+         <div className={classes.grow}></div>
+         <div>
+          <Link href="/Cart"> <ShoppingCartIcon/></Link> 
+           <Link href="/Login"> <AccountCircleIcon/> </Link>
+         </div> 
             
         </Toolbar>
       </AppBar>

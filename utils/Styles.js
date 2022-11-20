@@ -16,6 +16,9 @@ const useStyles = makeStyles((theme) =>({
        // marginBottom:'30px',
 
     },
+    grow:{
+        flexGrow: 1,
+    },
     main : {
         minHeight: '80vh',
 
