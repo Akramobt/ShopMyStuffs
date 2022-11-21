@@ -2,7 +2,7 @@ import { ServerStyleSheets } from '@mui/styles';
 import Document,{Html, NextScript,Head,Main} from 'next/document';
 import React from 'react';
 
-export default class Mydocument extends Document{
+export default class MyDocument extends Document{
     render(){
         return(
         <Html lang="en">
@@ -18,20 +18,20 @@ export default class Mydocument extends Document{
 }
 
 
-Mydocument.getInitialProps= async(ctx) => {
-    const sheets = new ServerStyleSheets();
-    const originalRenderPage = ctx.renderPage;
-    ctx.renderPage=()=>{
-      return originalRenderPage({
-        enhaceApp:(App)=>(props)=>sheets.collect(<App {...props}/>),
-       }) ;
-    };
-    const intialProps = await Document.getInitialProps(ctx);
-    return{
-        ...intialProps,
-        styles:[
-          ...React.Children.toArray(intialProps.styles),
-          sheets.getStyleElement(),  
-        ],
-    };
+MyDocument.getInitialProps = async (ctx) => {
+  const sheets = new ServerStyleSheets();
+  const originalRenderPage = ctx.renderPage;
+  ctx.renderPage = () => {
+    return originalRenderPage({
+      enhanceApp: (App) => (props) => sheets.collect(<App {...props} />),
+    });
+  };
+  const initialProps = await Document.getInitialProps(ctx);
+  return {
+    ...initialProps,
+    styles: [
+      ...React.Children.toArray(initialProps.styles),
+      sheets.getStyleElement(),
+    ],
+  };
 };

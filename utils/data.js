@@ -2,6 +2,7 @@ const data ={
     product : [
         {
             name: 'Stuff Shirt',
+            slug:'Stuff-Shirt',
             categorry : 'Shirts',
             image : '/images/shirt1.jpg',
             price: 70,
@@ -12,6 +13,7 @@ const data ={
             description : 'A popular shirt',
         }, {
             name: 'Steddy Shirt ',
+            slug:'Steddy-Shirt',
             categorry : 'Shirts',
             image : '/images/shirt2.jpg',
             price: 60,
@@ -22,6 +24,7 @@ const data ={
             description : 'A popular shirt',
         }, {
             name: 'JustLove Shirt',
+            slug:'JustLove-Shirt',
             categorry : 'Shirts',
             image : '/images/shirt3.jpg',
             price: 57,
@@ -32,6 +35,7 @@ const data ={
             description : 'A popular shirt',
         }, {
             name: 'classique Pants',
+            slug:'classique-Pants',
             categorry : 'Pants',
             image : '/images/Pants1.jpg',
             price: 100,
@@ -42,6 +46,7 @@ const data ={
             description : 'A popular pants',
         }, {
             name: 'Sports Pants',
+            slug:'Sports-Pants',
             categorry : 'Pants',
             image : '/images/pants2.jpg',
             price: 40,
@@ -52,6 +57,7 @@ const data ={
             description : 'A popular pants',
         }, {
             name: 'Swim Shorts',
+            slug:'Swim-Shorts',
             categorry : 'Pants',
             image : '/images/Pants3.jpg',
             price: 30,
