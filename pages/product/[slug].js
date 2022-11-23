@@ -1,11 +1,18 @@
 import React from 'react';
 import NextLink from 'next/link';
-import { Link } from '@mui/material';
+import Image from 'next/image';
+import { Grid, Link, Typography,List,ListItem,Card, Button } from '@mui/material';
 import {useRouter} from 'next/router';
 import data from '../../utils/data';
 import Layout from '../../components/Layout';
+import { ClassNames } from '@emotion/react';
+import useStyles from '../../utils/Styles';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import { Stack } from '@mui/system';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
 export default function ProductScreen() {
+  const classes= useStyles();
  const router= useRouter();
  const{slug}= router.query;
  const product=data.product.find((a) => a.slug === slug);
@@ -15,11 +22,78 @@ export default function ProductScreen() {
  }
   return (
     <Layout title = {product.name}>
-      <div>
-        <NextLink>
-          <Link>back to product</Link>
-        </NextLink>
+      <div className={classes.section}>
+         
+          <Link href='/' >
+            <Stack sx={{ flexDirection:'row' }}>
+            <ArrowBackIosNewIcon sx={{ fontSize: "30px" ,color:"#203040" }}/>
+            <Typography sx={{ mt:'5px',color:"#203040" }}>
+              Back to products list
+            </Typography>
+          </Stack>
+          </Link>
+       
       </div>
+      <Grid container spacing={1}>
+        <Grid item xs={12}  md={6}>
+          <Image 
+          src={product.image} 
+          alt={product.name} 
+          width={640} 
+          height={640} 
+          layout="responsive" />
+
+        </Grid>
+        <Grid item xs={12} md={3}>
+          <List>
+          <Typography><ListItem> {product.name} </ListItem></Typography>
+          <Typography><ListItem> Category: {product.categorry} </ListItem></Typography>
+          <Typography><ListItem> Brand: {product.brand} </ListItem></Typography>
+          <Typography>   
+            <ListItem> 
+              Rating: {product.rating} stars ({product.numReview} review)
+              </ListItem>
+            </Typography>   
+            <ListItem> 
+             
+              <Typography>
+              Description:  {product.description} 
+              </Typography>
+              
+              </ListItem>
+
+          </List>      
+        </Grid>
+        <Grid item md={3} sx={12}>
+          <Card>
+            <List>
+              <ListItem>
+                <Grid container>
+                  <Grid item xs={6}> <Typography> Price </Typography> </Grid>
+                  <Grid item xs={6} > <Typography> ${product.price} </Typography> </Grid>
+
+                </Grid>
+              </ListItem>
+              <ListItem>
+                <Grid container>
+                  <Grid item xs={6}> <Typography> Status </Typography> </Grid>
+                  <Grid item xs={6} > <Typography> {product.countInStock>0?'In stock':'Unavailable'} </Typography> </Grid>
+
+                </Grid>
+              </ListItem>
+              <ListItem>
+                <Button fullWidth variant='contained' color='primary'>
+                  <AddShoppingCartIcon/>
+                  Add to Card
+                </Button>
+              </ListItem>
+            </List>
+
+          </Card>
+
+        </Grid>
+
+      </Grid>
     </Layout>
     
   );

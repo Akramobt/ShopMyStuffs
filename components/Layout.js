@@ -7,13 +7,15 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 import Link from 'next/link' ;
 
-export default function Layout({children}) {
+export default function Layout({title ,children}) {
   const classes = useStyles();
 
   return (
     <div>
       <Head>
-        <title> Shop My Stuff</title>
+  
+        <title>{title?`${title}- Shop My Stuff`:'Shop My Stuff'} Shop My Stuff</title>
+      
       </Head>
       <AppBar position = "static" className={classes.navbar}>
         <Toolbar>
