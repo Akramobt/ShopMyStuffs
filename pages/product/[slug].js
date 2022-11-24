@@ -21,7 +21,7 @@ export default function ProductScreen() {
    return <div> Product not found</div>;
  }
   return (
-    <Layout title = {product.name}>
+    <Layout title = {product.name } description={product.description}>
       <div className={classes.section}>
          
           <Link href='/' >
@@ -46,7 +46,7 @@ export default function ProductScreen() {
         </Grid>
         <Grid item xs={12} md={3}>
           <List>
-          <Typography><ListItem> {product.name} </ListItem></Typography>
+          <Typography component="h1" variant='h1'><ListItem> {product.name} </ListItem></Typography>
           <Typography><ListItem> Category: {product.categorry} </ListItem></Typography>
           <Typography><ListItem> Brand: {product.brand} </ListItem></Typography>
           <Typography>   
