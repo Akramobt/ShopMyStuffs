@@ -24,16 +24,27 @@ export default function Layout({title ,description,children}) {
           margin:'1rem 0',
 
         },
+        body1:{
+          fontWeight: 'normal',
+        },
         
       },
-     } );
+      palette:{
+              primary:{
+               main:'#f0c000',
+              },
+              secondary:{
+               main:'#208080',
+       } 
+      },
+    } );
   const classes = useStyles();
 
   return (
     <div>
       <Head>
   
-        <title>{title?`${title}- Shop My Stuff`:'Shop My Stuff'} Shop My Stuff</title>
+        <title>{title?`${title}- Shop My Stuff`:'Shop My Stuff'} </title>
         {description && <meta name="description" content={description}></meta>}
       
       </Head>
