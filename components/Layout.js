@@ -1,14 +1,17 @@
-import React, { Children } from 'react';
+import React, { Children,useContext } from 'react';
 import Head from 'next/head';
-import {AppBar,Toolbar,Typography,Container, CssBaseline} from '@mui/material';
+import {AppBar,Toolbar,Typography,Container, CssBaseline, Switch} from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import useStyles from '../utils/Styles';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 import Link from 'next/link' ;
+import { Store } from '../utils/Store';
 
 export default function Layout({title ,description,children}) {
+  const{state, dispatch}=useContext(Store);
+  const {darkMode}=state;
   const theme= createTheme(
     {
       typography: {
@@ -30,16 +33,21 @@ export default function Layout({title ,description,children}) {
         
       },
       palette:{
+        type: darkMode ? 'dark' : 'light',
               primary:{
                main:'#f0c000',
               },
-              secondary:{
+              secondary:{          
                main:'#208080',
        } 
       },
     } );
   const classes = useStyles();
-
+  const darkModeChangeHandler = ()=>{
+    dispatch({type: darkMode ?'DARK_MODE_OFF': 'DARK_MODE_ON'});
+ //   const newDarkMode = !darkMode;
+  //  Cookies.set('darkMode', newDarkMode ? 'ON' : 'OFF');
+  };
   return (
     <div>
       <Head>
@@ -54,6 +62,7 @@ export default function Layout({title ,description,children}) {
         <Toolbar>
             <Link href='/'><Typography className={classes.brand}>ShopMyStuff</Typography> </Link>
          <div className={classes.grow}></div>
+         <Switch checked={darkMode} onChange={darkModeChangeHandler}></Switch>
          <div>
           <Link href="/Cart"> <ShoppingCartIcon/></Link> 
            <Link href="/Login"> <AccountCircleIcon/> </Link>
