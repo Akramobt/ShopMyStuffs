@@ -11,6 +11,7 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { Stack } from '@mui/system';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
+
 export default function ProductScreen() {
   const classes= useStyles();
  const router= useRouter();
@@ -26,8 +27,8 @@ export default function ProductScreen() {
          
           <Link href='/' >
             <Stack sx={{ flexDirection:'row' }}>
-            <ArrowBackIosNewIcon sx={{ fontSize: "30px" ,color:"#203040" }}/>
-            <Typography sx={{ mt:'5px',color:"#203040" }}>
+            <ArrowBackIosNewIcon sx={{ fontSize: "30px" ,color:'primary' }}/>
+            <Typography sx={{ mt:'5px',color:'primary' }}>
               Back to products list
             </Typography>
           </Stack>
