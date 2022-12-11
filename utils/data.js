@@ -1,5 +1,5 @@
 const data ={
-    product : [
+    products : [
         {
             name: 'Stuff Shirt',
             slug:'Stuff-Shirt',

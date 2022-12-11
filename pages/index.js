@@ -11,7 +11,7 @@ export default function Home() {
        <Grid container spacing={3}
       
        >
-        {data.product.map((product)=>(
+        {data.products.map((product)=>(
           <Grid item md={4} key={product.name}>
             <Card>
              <NextLink href={`/product/${product.slug}`} passHref>

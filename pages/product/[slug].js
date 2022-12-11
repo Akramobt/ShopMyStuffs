@@ -16,7 +16,7 @@ export default function ProductScreen() {
   const classes= useStyles();
  const router= useRouter();
  const{slug}= router.query;
- const product=data.product.find((a) => a.slug === slug);
+ const product=data.products.find((a) => a.slug === slug);
 
  if(!product){ 
    return <div> Product not found</div>;
