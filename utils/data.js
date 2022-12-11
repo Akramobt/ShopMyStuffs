@@ -11,7 +11,8 @@ const data ={
             numReview : 10,
             countInStock : 20,
             description : 'A popular shirt',
-        }, {
+        }, 
+        {
             name: 'Steddy Shirt ',
             slug:'Steddy-Shirt',
             categorry : 'Shirts',
