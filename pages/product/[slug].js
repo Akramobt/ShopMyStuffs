@@ -10,13 +10,16 @@ import useStyles from '../../utils/Styles';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { Stack } from '@mui/system';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import Product from '../../model/Product';
+import db from '../../utils/db';
 
 
-export default function ProductScreen() {
+export default function ProductScreen(props) {
+  const {product}= props;
   const classes= useStyles();
- const router= useRouter();
- const{slug}= router.query;
- const product=data.products.find((a) => a.slug === slug);
+ //const router= useRouter();
+// const{slug}= router.query;
+ //const product=data.products.find((a) => a.slug === slug);
 
  if(!product){ 
    return <div> Product not found</div>;
@@ -99,4 +102,19 @@ export default function ProductScreen() {
     
   );
   
+}
+
+//this function is to get data from data base and pass it to our UI product Page thats why we using product slug js  becaus it s just one product thats why we used findOne function to get one  product
+//read documentation of lean / getServerSideProps/ convertDocToObj for converting 
+export async function getServerSideProps(context){
+  const {params} = context;
+  const {slug} = params;
+  await db.connect();
+  const product = await Product.findOne({slug}).lean();
+  await db.disconnect();
+  return {
+    props:{
+      product: db.convertDocToObj(product),
+    },
+  };
 }
