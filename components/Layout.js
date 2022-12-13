@@ -1,6 +1,6 @@
 import React, { Children,useContext } from 'react';
 import Head from 'next/head';
-import {AppBar,Toolbar,Typography,Container, CssBaseline, Switch} from '@mui/material';
+import {AppBar,Toolbar,Typography,Container, CssBaseline, Switch,Badge} from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import useStyles from '../utils/Styles';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
@@ -12,7 +12,7 @@ import Cookies from 'js-cookie';
 
 export default function Layout({title ,description,children}) {
   const{state, dispatch}=useContext(Store);
-  const {darkMode}=state;
+  const {darkMode,cart}=state;
   const theme= createTheme(
     {
       typography: {
@@ -34,7 +34,7 @@ export default function Layout({title ,description,children}) {
         
       },
       palette:{
-        type: darkMode ? 'dark' : 'light',
+        mode: darkMode ? 'dark' : 'light',
               primary:{
                main:'#f0c000',
               },
@@ -65,7 +65,7 @@ export default function Layout({title ,description,children}) {
          <div className={classes.grow}></div>
          <Switch checked={darkMode} onChange={darkModeChangeHandler}></Switch>
          <div>
-          <Link href="/Cart"> <ShoppingCartIcon/></Link> 
+          <Link href="/Cart">{cart.cartItems.length > 0 ? (<Badge color='primary' badgeContent={cart.cartItems.length}> <ShoppingCartIcon/></Badge>):(<ShoppingCartIcon/>)}</Link> 
            <Link href="/Login"> <AccountCircleIcon/> </Link>
          </div> 
             
