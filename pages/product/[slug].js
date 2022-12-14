@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import NextLink from 'next/link';
 import Image from 'next/image';
 import { Grid, Link, Typography,List,ListItem,Card, Button } from '@mui/material';
-import {useRouter} from 'next/router';
+import Router, {useRouter} from 'next/router';
 import data from '../../utils/data';
 import Layout from '../../components/Layout';
 import { ClassNames } from '@emotion/react';
@@ -17,6 +17,7 @@ import {Store} from '../../utils/Store';
 
 
 export default function ProductScreen(props) {
+  const router = useRouter();
   const {dispatch} = useContext(Store);
   const {product}= props;
   const classes= useStyles();
@@ -35,7 +36,7 @@ export default function ProductScreen(props) {
 
   }
   dispatch ({type:'CART_ADD_ITEM',payload:{ ...product,quantity:1 }})
-
+  router.push('/cart');
  }
   return (
     <Layout title = {product.name } description={product.description}>
